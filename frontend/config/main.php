@@ -15,11 +15,19 @@ return [
         'request' => [
             'csrfParam' => '_csrf-frontend',
         ],
+        /* Next block is Yii default
         'user' => [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,
             'identityCookie' => ['name' => '_identity-frontend', 'httpOnly' => true],
         ],
+        */
+        /* The two items below must be logged out to enable superadmin logon */
+        'user' => [
+            //'identityClass' => 'common\models\User',
+            //'enableAutoLogin' => true,
+            'identityCookie' => ['name' => '_identity-frontend', 'httpOnly' => true],
+        ],        
         'session' => [
             // this is the name of the session cookie used for login on the frontend
             'name' => 'advanced-frontend',

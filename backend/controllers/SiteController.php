@@ -14,8 +14,9 @@ class SiteController extends Controller
 {
     /**
      * @inheritdoc
+     * @internal yii 2.0 original behaviors function prior to yii2-user-management
      */
-    public function behaviors()
+    public function yii2_default_behaviors()
     {
         return [
             'access' => [
@@ -40,6 +41,20 @@ class SiteController extends Controller
             ],
         ];
     }
+    
+    /**
+     * Added by extension yii2-user-management
+     * @return mixed
+     * @category extensions
+     */
+    public function behaviors()
+    {
+            return [
+                    'ghost-access'=> [
+                            'class' => 'webvimark\modules\UserManagement\components\GhostAccessControl',
+                    ],
+            ];
+    }    
 
     /**
      * @inheritdoc
