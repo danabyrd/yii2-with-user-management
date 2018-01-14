@@ -16,11 +16,20 @@ return [
         'request' => [
             'csrfParam' => '_csrf-backend',
         ],
+        /* Next block is Yii v2.0.13 default
         'user' => [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,
             'identityCookie' => ['name' => '_identity-backend', 'httpOnly' => true],
-        ],
+        ], */
+        /* The two items below must be commented out to enable superadmin logon 
+         * when yii2-user-management extension is installed
+         */
+        'user' => [
+//            'identityClass' => 'common\models\User',
+//            'enableAutoLogin' => true,
+            'identityCookie' => ['name' => '_identity-backend', 'httpOnly' => true],
+        ],        
         'session' => [
             // this is the name of the session cookie used for login on the backend
             'name' => 'advanced-backend',
